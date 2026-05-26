@@ -26,9 +26,7 @@ class Register extends Component
     // Properti untuk menentukan role saat registrasi (default-nya 'guest')
     public $role = 'guest';
 
-    /**
-     * Fungsi untuk memproses pendaftaran akun baru
-     */
+    
     public function register()
     {
         // 1. Jalankan validasi input sesuai dengan rule di atas
