@@ -17,7 +17,7 @@
 
     <div class="mt-14">
       <a href="#"
-        class="inline-block bg-red-500 hover:bg-red-600 text-white text-[24px] font-semibold px-16 py-5 rounded-full transition">
+        class="inline-block bg-blue-500 hover:bg-blue-600 text-white text-[24px] font-semibold px-16 py-5 rounded-full transition">
         Sign up for free
       </a>
     </div>
