@@ -1,26 +1,6 @@
 <div>
 
-  <header class="w-full px-16 py-8 flex items-center justify-between">
-    
-    
-    <div class="text-5xl font-bold flex items-center">
-      <span class="text-red-600">My</span>
-      <span class="text-lg-500">NotePad</span>
-    </div>
-
-    
-    <nav class="flex items-center gap-16 text-[20px] text-gray-800">
-      <a href="#" class="hover:text-red-500 transition">Features</a>
-      <a href="#" class="hover:text-red-500 transition">Pricing</a>
-      <a href="#" class="hover:text-red-500 transition">Login</a>
-
-      
-      <a href="#"
-        class="bg-red-500 hover:bg-red-600 text-white font-semibold px-10 py-4 rounded-full transition">
-        Sign up for free
-      </a>
-    </nav>
-  </header>
+  
 
   
   <section class="text-center mt-24">

@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{{ $title ?? config('app.name') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>{{ $title ?? config('app.name') }}</title>
 
-        @livewireStyles
-    </head>
-    <body>
-        {{ $slot }}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        @livewireScripts
-    </body>
+    @livewireStyles
+</head>
+
+<body>
+    <header class="w-full px-16 py-8 flex items-center justify-between">
+
+
+        <div class="text-5xl font-bold flex items-center">
+            <span class="text-red-600">My</span>
+            <span class="text-lg-500">NotePad</span>
+        </div>
+
+
+        <nav class="flex items-center gap-16 text-[20px] text-gray-800">
+            <a href="#" class="hover:text-red-500 transition">Features</a>
+            <a href="#" class="hover:text-red-500 transition">Pricing</a>
+            <a href="#" class="hover:text-red-500 transition">Login</a>
+
+
+            <a href="#"
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold px-10 py-4 rounded-full transition">
+                Sign up for free
+            </a>
+        </nav>
+    </header>
+    
+    {{ $slot }}
+
+    @livewireScripts
+</body>
+
 </html>
