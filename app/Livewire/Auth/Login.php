@@ -8,7 +8,6 @@ use Livewire\Attributes\Validate;
 
 class Login extends Component
 {
-    // Menggunakan Livewire v3 Form Validation Attributes
     #[Validate('required|email')]
     public $email = '';
 
@@ -17,34 +16,23 @@ class Login extends Component
 
     public $remember = false;
 
-    /**
-     * Fungsi untuk memproses login
-     */
     public function login()
     {
-        // 1. Jalankan validasi inputan di atas
+        // 1. Jalankan validasi input
         $this->validate();
 
-        // 2. Coba lakukan autentikasi (attempt login)
+        // 2. Coba lakukan autentikasi
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
             
-            // Regenerasi session untuk keamanan dari session fixation
+            // Regenerasi session untuk keamanan mencegah session fixation
             session()->regenerate();
 
-            // 3. Ambil data user yang baru saja berhasil login
-            $user = Auth::user();
-
-            // 4. LOGIC REDIRECT: Cek role user untuk pengalihan halaman
-            if ($user->role === 'admin') {
-                // Jika admin, arahkan ke route dashboard admin
-                return $this->redirectRoute('admin.dashboard', navigate: true);
-            }
-
-            // Jika bukan admin (guest/user biasa), arahkan ke halaman utama
-            return $this->redirectRoute('guest.landing', navigate: true);
+            // 3. Redirect ke halaman dashboard (sesuai route 'dashboard' yang sudah dibuat)
+            // Menggunakan navigate: true agar perpindahan halaman terasa cepat seperti SPA (Single Page Application)
+            return $this->redirectRoute('dashboard', navigate: true);
         }
 
-        // 5. Jika login gagal, kirim pesan error ke inputan email
+        // 4. Jika login gagal
         $this->addError('email', 'Email atau password yang kamu masukkan salah.');
     }
 

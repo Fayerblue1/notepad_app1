@@ -18,7 +18,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             // Tambahkan baris ini: default-nya adalah 'guest'
-            $table->string('role')->default('guest'); 
             $table->rememberToken();
             $table->timestamps();
         });

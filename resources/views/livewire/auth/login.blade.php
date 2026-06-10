@@ -1,30 +1,40 @@
-<div class="bg-gray-100 flex items-center justify-center min-h-screen">
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
 
-    <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6">
-    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
+    <form wire:submit="login" class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
 
-    <form action="{{ route('auth.login') }}" method="POST" class="space-y-4">
-        <div>
-            <input type="text" name="email" placeholder="Email" 
-                class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <h2 class="text-3xl font-bold text-center mb-6">
+            Login
+        </h2>
+
+        <div class="mb-4">
+            <input type="email" wire:model="email" placeholder="Email"
+                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            @error('email') <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span> @enderror
         </div>
 
-        <div>
-            <input type="password" name="password" placeholder="Password" 
-                class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="mb-4">
+            <input type="password" wire:model="password" placeholder="Password"
+                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            @error('password') <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span> @enderror
         </div>
 
-        <button type="submit" 
-            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-md transition duration-200">
+        <div class="mb-6 flex items-center">
+            <input type="checkbox" wire:model="remember" id="remember" class="mr-2 rounded text-blue-500 focus:ring-blue-500">
+            <label for="remember" class="text-sm text-gray-600 select-none">Ingat Saya</label>
+        </div>
+
+        <button type="submit"
+            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold p-3 rounded-lg transition">
             Login
         </button>
+
+        <div class="flex justify-center items-center gap-1 mt-4">
+            <p>Belum punya akun?</p>
+            <a href="{{ route('register') }}" class="text-blue-500 hover:underline">
+                Register
+            </a>
+        </div>
+
     </form>
 
-    <p class="text-center text-gray-600 mt-6">
-        Belum punya akun? 
-        <a href="{{ route('auth.register') }}" class="text-blue-600 hover:underline font-medium">Register</a>
-    </p>
 </div>
-
-</div>
-

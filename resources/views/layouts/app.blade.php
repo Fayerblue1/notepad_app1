@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    @if ((!request()->routeIs('dashboard')) && (!request()->routeIs('dashboard.*')))
+        
     <header class="w-full px-16 py-8 flex items-center justify-between">
 
 
@@ -28,12 +30,13 @@
             <a href="#" class="hover:text-blue-500 transition">Login</a>
 
 
-            <a href="#"
+            <a href="{{ route('login') }}"
                 class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-10 py-4 rounded-full transition">
                 Sign up for free
             </a>
         </nav>
     </header>
+    @endif
 
     {{ $slot }}
 
